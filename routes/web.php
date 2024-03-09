@@ -30,3 +30,34 @@ Route::get('/giohang', function () {
 Route::get('/thanhtoan', function () {
     return view('user.thanhtoan');
 });
+
+
+Route::get('/admin/trangchu', function () {
+    return view('admin.trangchu');
+});
+
+Route::get('/admin/danhsachsanpham', function () {
+    return view('admin/danhsachsanpham');
+});
+
+Route::get('/admin/themsanpham', function () {
+    return view('admin/themsanpham');
+});
+
+Route::get('/admin/danhmucsanpham', function () {
+    return view('admin/danhmuc');
+});
+
+Route::get('/admin/themdanhmucsanpham', function () {
+    return view('admin/themdanhmuc');
+});
+Route::get('/admin/danhsachkhachhang', function () {
+    return view('admin/danhsachkhachhang');
+});
+
+Route::get('/admin/thongtincanhan', function () {
+    return view('admin/thongtincanhan');
+});
+Route::get('/admin/capnhatdonhang', function () {
+    return view('/admin/capnhatdonhang');
+});

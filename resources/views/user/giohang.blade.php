@@ -19,11 +19,7 @@
                         </tr>
                     </thead>
                     <tbody>
-
-
-
                         <tr>
-
 
                             <td><a href=""><img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt=""></a></td>
                             <td>Ip 12 promaxx <strong>X 10</strong></td>
@@ -31,12 +27,6 @@
                             <td>120 000 000 VNĐ</td>
                             <td><i class="fa-solid fa-trash"></i></td>
                         </tr>
-
-
-
-
-
-
                     </tbody>
                 </table>
                 <table id="listcart_max">
@@ -67,13 +57,7 @@
                                 <td><span>120 000 000 vnđ</span></td>
                                 <td><a href=""  target="?mod=cart&action=deleteproductcart&id=" ><i class="fa-solid fa-trash"></i></a></td>
                             </tr>
-                 
-
-
-
-
-
-
+                
                     </tbody>
                 </table>
 
