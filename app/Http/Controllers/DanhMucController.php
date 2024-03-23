@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\DB;
 class DanhMucController extends Controller
 {
     public function loaddanhmuc(){
-    $tendanhmuc = DB::table('danhmuc')->select('*')->get();
-    return view("admin.danhmuc")->with('tendanhmuc',$tendanhmuc);
+        $danhmuc = new Danhmuc();
+        $dsdanhmuc = $danhmuc->loaddanhmuc();
+        return view("admin.danhmuc")->with("tendanhmuc",$dsdanhmuc);
     }
     
     public function taodanhmuc (){

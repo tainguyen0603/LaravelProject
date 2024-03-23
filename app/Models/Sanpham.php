@@ -10,4 +10,7 @@ class Sanpham extends Model
     protected $table ='sanpham';
     protected $fillable = ['id', 'masanpham', 'tensanpham','soluong','dongia','hinhanh','motangan','chitietsanoham','soluongdaban','tinhtrang','id_danhmuc'];
     use HasFactory;
+    public function loadsanpham(){
+        
+    }
 }
