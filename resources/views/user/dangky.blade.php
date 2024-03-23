@@ -17,10 +17,10 @@
 
     <div id="form-reg">
         <div class="form-reg">
-
             <h2>Đăng ký thành viên</h2>
-            <form action="" method="POST">
-                <label for="">Tên đăng nhập</label>
+            <form action="{{route('dangky.post')}}" method="POST">
+		@csrf
+                <label for="">Tên tài khoản</label>
                 <input type="text" name="username" id="username" placeholder="Tên đăng nhập">
                 <div class="username"></div>
 
@@ -45,7 +45,7 @@
                 <textarea name="address" id="address" cols="30" rows="10" placeholder="Địa chỉ liên lạc"></textarea>
                 <div class="addresss"></div>
 
-                <input type="submit" id="inputsubmit"   name="btn-reg" value="Đăng ký">
+                <input type="submit" id="inputsubmit" name="btn-reg" value="Đăng ký">
             </form>
         </div>
     </div>
