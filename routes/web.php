@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DanhMucController;
+use App\Models\trangthaisanpham;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,9 @@ Route::get('/thanhtoan', function () {
 
 
 Route::get('/admin/trangchu', function () {
+    // $trangthaisanpham= new  trangthaisanpham();
+    // $all= $trangthaisanpham->all();
+    // echo $all;
     return view('admin.trangchu');
 });
 
@@ -44,13 +49,11 @@ Route::get('/admin/themsanpham', function () {
     return view('admin/themsanpham');
 });
 
-Route::get('/admin/danhmucsanpham', function () {
-    return view('admin/danhmuc');
-});
+Route::get('/admin/danhmucsanpham',[DanhMucController::class, 'loaddanhmuc']);
 
-Route::get('/admin/themdanhmucsanpham', function () {
-    return view('admin/themdanhmuc');
-});
+Route::get('/admin/themdanhmucsanpham', [DanhMucController::class, 'taodanhmuc'])->name('taodanhmuc');
+Route::post('/admin/xulydanhmuc', [DanhMucController::class, 'xuly'])->name('xuly');
+
 Route::get('/admin/danhsachkhachhang', function () {
     return view('admin/danhsachkhachhang');
 });

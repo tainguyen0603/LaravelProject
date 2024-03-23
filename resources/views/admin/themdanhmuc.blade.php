@@ -8,12 +8,20 @@
                     <div class="card-header font-weight-bold">
                         Thêm danh mục
                     </div>
+                    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
                     <div class="card-body">
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('xuly') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                             <div class="form-group">
                                 <label for="name">Tên danh mục</label>
                                 <input class="form-control" type="text" name="name_category" id="name">
                             </div>
+                            <p>Name: {{ $data['name'] }}</p>
+<p>Age: {{ $data['age'] }}</p>
                           
                     
 
