@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DanhMucController;
+use App\Http\Controllers\TrangChuController;
 use App\Models\trangthaisanpham;
 
 /*
@@ -15,10 +16,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/trangchu', function () {
-    return view('user.trangchu');
-})->name('trangchu');
-
+Route::get('/trangchu',[TrangChuController::class,'trangchu'] )->name('trangchu');
+Route::get('/chitietsanpham/{id}',[TrangChuController::class,'chitietsanpham'] )->name('chitietsanpham');
 Route::get('/dangnhap',[AuthController::class,'dangnhap'])->name('dangnhap');
 
 Route::post('/dangnhap',[AuthController::class,'dangnhapPost'])->name('dangnhap.post');

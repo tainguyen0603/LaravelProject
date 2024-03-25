@@ -7,17 +7,17 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self';"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="fontawesome/fontawesome/css/all.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/wp-content.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/login-reg.css" />
-    <link rel="stylesheet" href="css/detailproduct.css">
-    <link rel="stylesheet" href="css/cart.css">
-    <link rel="stylesheet" href="css/checkout.css">
-    <link rel="stylesheet" href="css/history_cart.css">
-    <link rel="stylesheet" href="css/yourinfo.css">
-    <link rel="stylesheet" href="css/pagging.css">
-    <link rel="stylesheet" href="css/product_conditions.css">
+    <link rel="stylesheet" href="{{asset('css/header.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/wp-content.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/footer.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/login-reg.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/detailproduct.css')}}">
+    <link rel="stylesheet" href="{{asset('css/cart.css')}}">
+    <link rel="stylesheet" href="{{asset('css/checkout.css')}}">
+    <link rel="stylesheet" href="{{asset('css/history_cart.css')}}">
+    <link rel="stylesheet" href="{{asset('css/yourinfo.css')}}">
+    <link rel="stylesheet" href="{{asset('css/pagging.css')}}">
+    <link rel="stylesheet" href="{{asset('css/product_conditions.css')}}">
 
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 
@@ -124,7 +124,7 @@
                         <i class="fa-solid fa-bars"></i>
                     </div>
                     <div class="logo">
-                        <a href="trangchu">Vsmart</a>
+                        <a href="{{route('trangchu')}}">Vsmart</a>
                     </div>
                     <!-- <form action="" forget></form> -->
                     <div class="search">
@@ -191,27 +191,7 @@
 
 
             </div>
-            <!-- <div class="head-footer">
-                <div class="main-menu">
-                    <ul class="menu">
-                        <a href="?mod=home&action=home">
-                            <li>Trang chủ</li>
-                        </a>
-                        <a href="?mod=store&controler=index&action=introduce">
-                            <li>Giới Thiệu</li>
-                        </a>
-                        <a href="">
-                            <li>Sản phẩm</li>
-                        </a>
-                        <a href="">
-                            <li>Blogs</li>
-                        </a>
-                        <a href="">
-                            <li>Liên hệ</li>
-                        </a>
-                    </ul>
-                </div>
-            </div> -->
+            
             <div id="menu_replace">
 
                 <div class="menu">

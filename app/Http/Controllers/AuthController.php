@@ -11,49 +11,56 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function dangnhap(){
-	return view('user.dangnhap');
-    }
-
-    public function dangnhapPost(Request $request)
-    {
-        $request->validate([
-    	    'username' => 'required',
-	    'password' => 'required'
-    	]);
-	$credentials=$request->only('username','password');
-        if(Auth::attempt($credentials)){
-	     return redirect()->intended(route('trangchu'));
+	public function dangnhap()
+	{
+		return view('user.dangnhap');
 	}
-	return redirect(route('dangnhap'))->with("error","Username or password not correct");
-    }
 
-    public function dangky(){
-	return view('user.dangky'); 
-    }
+	public function dangnhapPost(Request $request)
+	{
+		$request->validate([
+			'name' => 'required',
+			'password' => 'required',
+		]);
 
-    public function dangkyPost(Request $request){
-	$request->validate([
-    	    'username' => 'required',
-	    'fullname' => 'required',
-	    'email' => 'required|email|unique:users',
-	    'password' => 'required',
-	    're_password' => 'required',
-	    'address' => 'required',
-    	]);
 
-	$data['name']=$request->username;
-	$data['email']=$request->email;
-	$data['password']=Hash::make($request->password);
-	$user=User::create($data);
-	if(!$user){
-	   return redirect(route('dangky'))->with("error","Registration failed, try again");
+
+		$credentials = $request->only('name', 'password');
+		if (Auth::attempt($credentials)) {
+			return redirect()->intended(route('trangchu'));
+		}
+		return redirect(route('dangnhap'))->with("ErrorLogin", "Username or password not correct");
 	}
-	return redirect(route('dangnhap'))->with("success","Registration success, please login");
-    }
-    public function dangxuat(){
-	Session::flush();
-	Auth::logout();
-	return redirect(route('dangnhap'));
-    }
+
+	public function dangky()
+	{
+		return view('user.dangky');
+	}
+
+	public function dangkyPost(Request $request)
+	{
+		$request->validate([
+			'username' => 'required',
+			'fullname' => 'required',
+			'email' => 'required|email|unique:users',
+			'password' => 'required',
+			're_password' => 'required',
+			'address' => 'required',
+		]);
+
+		$data['name'] = $request->username;
+		$data['email'] = $request->email;
+		$data['password'] = Hash::make($request->password);
+		$user = User::create($data);
+		if (!$user) {
+			return redirect(route('dangky'))->with("error", "Registration failed, try again");
+		}
+		return redirect(route('dangnhap'))->with("success", "Registration success, please login");
+	}
+	public function dangxuat()
+	{
+		Session::flush();
+		Auth::logout();
+		return redirect(route('dangnhap'));
+	}
 }

@@ -1,228 +1,51 @@
 @extends('UserLayout.layout')
 @section('content')
-    <div class="content">
-        <div class="product">
+<div class="content">
+    <div class="product">
 
-            <div id="list-product">
-                <div style="padding: 30px;font-size:24px;" id="danhmuc"></div>
-                <ul>
-
-
+        <div id="list-product">
+            <div style="padding: 30px;font-size:24px;" id="danhmuc"></div>
+            <ul>
 
 
-                    <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
+
+                @foreach($SanPhamTrangChu as $sanpham)
+                <a href="{{route('chitietsanpham',['id'=>$sanpham->id])}}">
+                    <li>
+                        <div class="img"> <img src="{{asset('admin/images/'.$sanpham->hinhanh)}}" alt="" /></div>
+                        <div class="info">
+                            <p class="name-product">{{$sanpham->tensanpham}}</p>
+                            <p class="price"><strong><?php echo number_format($sanpham->dongia) ?>.đ</strong>
+                            <p>
+                            <div class="rate">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
                             </div>
-                        </li>
-                    </a>
-                    <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a> <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a> <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a> <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a> <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a> <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a> <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a> <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a> <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a> <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a> <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a> <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a> <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a> <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a> <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a> <a href="?mod=home&action=detailproduct&id=">
-                        <li>
-                            <div class="img"> <img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt="" /></div>
-                            <div class="info">
-                                <p class="name-product">Ip10 pro max</p>
-                                <p class="price"><strong>14 000 000 VNĐ</strong>
-                                <p>
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                            </div>
-                        </li>
-                    </a>
+                        </div>
+                    </li>
+                </a>
+
+                @endforeach
 
 
-                </ul>
-            </div>
-
-
+            </ul>
+            <style>
+                .padding nav a,    .padding nav span {
+                    display: inline-block;
+                    width: 150px;
+                    margin: 10px;
+                    text-decoration: none;
+                    font-size: 24px;
+                    background-color: red;
+                    color: white;
+                    text-align: center;
+                    padding: 10px;
+                }
+            </style>
+            <div class="padding" style="display: flex;justify-content:center">{{$SanPhamTrangChu->links()}}</div>
         </div>
+
+
     </div>
+</div>
 </div>
 @endsection
