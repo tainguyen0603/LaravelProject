@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('css/yourinfo.css')}}">
     <link rel="stylesheet" href="{{asset('css/pagging.css')}}">
     <link rel="stylesheet" href="{{asset('css/product_conditions.css')}}">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 
 
@@ -162,24 +162,24 @@
 
                             <p>Có <strong class="num-order">10</strong> sản phẩm trong giỏ hàng </p>
                             <ul>
-
+                                @foreach (Cart::content() as $row)
                                 <li>
                                     <div class="item">
                                         <div class="img-product">
-                                            <a href="" alt=""><img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt=""></a>
+                                            <a href="" alt=""><img src="{{asset('admin/images/'.$row->options->hinhanh)}}" alt=""></a>
                                         </div>
                                         <div class="info">
-                                            <p class="name">Ip10</p>
-                                            <p class="price">10.000.000 VNĐ</p>
-                                            <p class="num-order">Số lượng:10</p>
+                                            <p class="name"></p>
+                                            <p class="price"><?php echo number_format($row->price) ?> VNĐ</p>
+                                            <p class="num-order">Số lượng:{{$row->qty}}</p>
                                         </div>
                                     </div>
                                 </li>
 
-
+                                @endforeach
 
                             </ul>
-                            <p class="total">Tổng tiền:<strong class="sub-total">120.000.000 VNĐ</strong></p>
+                            <p class="total">Tổng tiền:<strong class="sub-total">{{Cart::total()}} VNĐ</strong></p>
 
                             <a href="giohang" class="cart">Giỏ hàng</a>
                             <a href="thanhtoan" class="checkout">Thanh toán</a>
@@ -191,7 +191,7 @@
 
 
             </div>
-            
+
             <div id="menu_replace">
 
                 <div class="menu">

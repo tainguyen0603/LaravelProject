@@ -1,10 +1,11 @@
 @extends('UserLayout.layout')
 @section('content')
-
-
-
-
 <div id="wp-content">
+    @if(session('AddSuccess'))
+    <div class="alert alert-success">
+        {{ session('AddSuccess') }}
+    </div>
+    @endif
     <div class="detailproduct">
         <div class="detail">
             <div class="image">
@@ -17,7 +18,7 @@
                 </div>
                 <h3>Còn hàng</h3>
                 <span class="price"><?php echo number_format($sanphambyid[0]->dongia) ?> VNĐ</span>
-                <a href="" style="text-decoration: none;">Thêm vào giỏ hàng</a>
+                <a href="{{route('AddToCart',['id'=>$sanphambyid[0]->id])}}" style="text-decoration: none;">Thêm vào giỏ hàng</a>
             </div>
         </div>
 
