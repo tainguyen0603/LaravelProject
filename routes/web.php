@@ -39,9 +39,7 @@ Route::get('/thanhtoan', function () {
 });
 
 Route::get('/admin/trangchu', function () {
-    // $trangthaisanpham= new  trangthaisanpham();
-    // $all= $trangthaisanpham->all();
-    // echo $all;
+    
     return view('admin.trangchu');
 });
 
@@ -53,11 +51,16 @@ Route::get('/admin/themsanpham', function () {
     return view('admin/themsanpham');
 });
 
-Route::get('/admin/danhmucsanpham', [DanhMucController::class, 'loaddanhmuc']);
 
-Route::get('/admin/themdanhmucsanpham', [DanhMucController::class, 'taodanhmuc'])->name('taodanhmuc');
-Route::post('/admin/xulydanhmuc', [DanhMucController::class, 'xuly'])->name('xuly');
+Route::get('/admin/danhmucsanpham',[DanhMucController::class, 'loaddanhmuc'])->name('loaddanhmuc');
 
+Route::get('/admin/capnhatdanhmucsanpham/{id}',[DanhMucController::class, 'capnhatdanhmucsanpham'])->name('capnhatdanhmucsanpham');
+Route::get('/admin/xulycapnhatdanhmucsanpham',[DanhMucController::class, 'xulycapnhatdanhmucsanpham'])->name('xulycapnhatdanhmucsanpham');
+
+Route::get('/admin/themdanhmuc', function () {
+    return view('admin/themdanhmuc');
+});
+Route::get('/admin/xulythemdanhmucsanpham', [DanhMucController::class, 'themdanhmuc'])->name('xulythemdanhmucsanpham');
 Route::get('/admin/danhsachkhachhang', function () {
     return view('admin/danhsachkhachhang');
 });
@@ -68,3 +71,4 @@ Route::get('/admin/thongtincanhan', function () {
 Route::get('/admin/capnhatdonhang', function () {
     return view('/admin/capnhatdonhang');
 });
+

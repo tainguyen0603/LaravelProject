@@ -9,21 +9,39 @@ use Illuminate\Support\Facades\DB;
 
 class DanhMucController extends Controller
 {
-    public function loaddanhmuc(){
-        $danhmuc = new Danhmuc();
-        $dsdanhmuc = $danhmuc->loaddanhmuc();
-        return view("admin.danhmuc")->with("tendanhmuc",$dsdanhmuc);
+    public $danhmuc;
+    public function __construct()
+    {
+        $this->danhmuc = new Danhmuc();
     }
-    
-    public function taodanhmuc (){
-        $data = ['name' => 'John', 'age' => 30];
-        return view("admin.themdanhmuc")->with('data',$data);
-
+    public function loaddanhmuc()
+    {
+        $dsdanhmuc = $this->danhmuc->loaddanhmuc();
+        return view("admin.danhmuc")->with("tendanhmuc", $dsdanhmuc);
     }
-    public function xuly(Request $request)
-{
-    return redirect()->route('taodanhmuc')->with('success', 'Đã thêm danh mục thành công');
 
-    // $name = $request->input('name_category');
-
-}}
+    public function themdanhmuc(Request $request)
+    {
+        $request->validate(
+            ['name_category' => 'required'],
+            ['required' => 'Không được bỏ trống :attribute'],
+            ['name_category' => 'tên danh mục']
+        );
+        $ten_danhmuc = $request->name_category;
+        return $this->danhmuc->themdanhmuc($ten_danhmuc);
+    }
+    public function capnhatdanhmucsanpham($id){
+        $danhmuc=$this->danhmuc->getdanhmuc($id);
+        return view("admin.capnhatdanhmuc")->with("tendanhmuc", $danhmuc);
+    }
+    public function xulycapnhatdanhmucsanpham( Request $request){
+        $request->validate(
+            ['name_category' => 'required'],
+            ['required' => 'Không được bỏ trống :attribute'],
+            ['name_category' => 'tên danh mục']
+        );
+        $ten_danhmuc = $request->name_category;
+        $id_danhmuc = $request->id_category;
+        return $this->danhmuc->capnhatdanhmuc($ten_danhmuc,$id_danhmuc);
+    }
+}
