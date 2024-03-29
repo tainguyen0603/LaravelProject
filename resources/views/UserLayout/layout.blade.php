@@ -160,13 +160,13 @@
 
 
 
-                            <p>Có <strong class="num-order">10</strong> sản phẩm trong giỏ hàng </p>
+                            <p>Có <strong class="num-order">{{Cart::count()}}</strong> sản phẩm trong giỏ hàng </p>
                             <ul>
                                 @foreach (Cart::content() as $row)
                                 <li>
                                     <div class="item">
                                         <div class="img-product">
-                                            <a href="" alt=""><img src="{{asset('admin/images/'.$row->options->hinhanh)}}" alt=""></a>
+                                            <a href="{{route('chitietsanpham',['id'=>$row->id])}}" alt=""><img src="{{asset('admin/images/'.$row->options->hinhanh)}}" alt=""></a>
                                         </div>
                                         <div class="info">
                                             <p class="name"></p>
@@ -181,7 +181,7 @@
                             </ul>
                             <p class="total">Tổng tiền:<strong class="sub-total">{{Cart::total()}} VNĐ</strong></p>
 
-                            <a href="giohang" class="cart">Giỏ hàng</a>
+                            <a href="{{route('giohang')}}" class="cart">Giỏ hàng</a>
                             <a href="thanhtoan" class="checkout">Thanh toán</a>
                         </div>
                     </div>

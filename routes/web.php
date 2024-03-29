@@ -30,16 +30,19 @@ Route::post('/dangky', [AuthController::class, 'dangkyPost'])->name('dangky.post
 
 Route::get('/dangxuat', [AuthController::class, 'dangxuat'])->name('dangxuat');
 
-Route::get('/giohang', function () {
-    return view('user.giohang');
-});
+Route::get('/giohang', [CartController::class, 'GioHang'])->name('giohang');;
+Route::get('/xoaxamphamgiohang/{rowID}', [CartController::class, 'xoaxamphamgiohang'])->name('xoaxamphamgiohang');
+Route::get('/xoagiohang', [CartController::class, 'xoagiohang'])->name('xoagiohang');
+Route::get('/capnhatgiohang', [CartController::class, 'capnhatgiohang'])->name('capnhatgiohang');
+
+
 
 Route::get('/thanhtoan', function () {
     return view('user.thanhtoan');
 });
 
 Route::get('/admin/trangchu', function () {
-    
+
     return view('admin.trangchu');
 });
 
@@ -52,10 +55,10 @@ Route::get('/admin/themsanpham', function () {
 });
 
 
-Route::get('/admin/danhmucsanpham',[DanhMucController::class, 'loaddanhmuc'])->name('loaddanhmuc');
+Route::get('/admin/danhmucsanpham', [DanhMucController::class, 'loaddanhmuc'])->name('loaddanhmuc');
 
-Route::get('/admin/capnhatdanhmucsanpham/{id}',[DanhMucController::class, 'capnhatdanhmucsanpham'])->name('capnhatdanhmucsanpham');
-Route::get('/admin/xulycapnhatdanhmucsanpham',[DanhMucController::class, 'xulycapnhatdanhmucsanpham'])->name('xulycapnhatdanhmucsanpham');
+Route::get('/admin/capnhatdanhmucsanpham/{id}', [DanhMucController::class, 'capnhatdanhmucsanpham'])->name('capnhatdanhmucsanpham');
+Route::get('/admin/xulycapnhatdanhmucsanpham', [DanhMucController::class, 'xulycapnhatdanhmucsanpham'])->name('xulycapnhatdanhmucsanpham');
 
 Route::get('/admin/themdanhmuc', function () {
     return view('admin/themdanhmuc');
@@ -71,4 +74,3 @@ Route::get('/admin/thongtincanhan', function () {
 Route::get('/admin/capnhatdonhang', function () {
     return view('/admin/capnhatdonhang');
 });
-
