@@ -22,31 +22,43 @@
 		@csrf
                 <label for="">Tên tài khoản</label>
                 <input type="text" name="username" id="username" placeholder="Tên đăng nhập">
-                <div class="username"></div>
+		@error('username')
+                <div class="username">{{$message}}</div>
+		@enderror
 
                 <label for="">Họ và tên</label>
                 <input type="text" name="fullname" id="fullname" placeholder="Họ và tên">
-                <div class="fullname"></div>
-
+                @error('fullname')
+			<div class="fullname">{{$message}}</div>
+		@enderror
                 <label for="">Email</label>
                 <input type="text" name="email" id="email" placeholder="Email">
-                <div class="email"></div>
-
+		@error('email')
+                	<div class="email">{{$message}}</div>
+		@enderror
 
                 <label for="">Mật khẩu</label>
                 <input type="password" name="password" id="password" placeholder="Mật khẩu">
-                <div class="password"></div>
+		@error('password')
+                	<div class="password">{{$message}}</div>
+		@enderror
 
                 <label for="">Nhập lại mật khẩu</label>
                 <input type="password" name="re_password" id="re_password" placeholder="Nhập lại mật khẩu">
-                <div class="re_password"></div>
+		@error('re_password')
+                	<div class="re_password">{{$message}}</div>
+		@enderror
 
                 <label for="">Địa chỉ liên lạc</label>
                 <textarea name="address" id="address" cols="30" rows="10" placeholder="Địa chỉ liên lạc"></textarea>
-                <div class="addresss"></div>
-
+		@error('address')
+                	<div class="addresss">{{$message}}</div>
+		@enderror
                 <input type="submit" id="inputsubmit" name="btn-reg" value="Đăng ký">
             </form>
+	    @if($errors->has('error'))
+		<div class="err_usernamelogin">{{ $errors->first('error') }}</div>
+            @endif
         </div>
     </div>
 </div>

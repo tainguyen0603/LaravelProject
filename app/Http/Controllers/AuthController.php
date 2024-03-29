@@ -21,11 +21,13 @@ class AuthController extends Controller
     	    'username' => 'required',
 	    'password' => 'required'
     	]);
-	$credentials=$request->only('username','password');
-        if(Auth::attempt($credentials)){
+	$user = (new User())->authenticate($request->username, $request->password);
+        if($user){
+	     Auth::login($user);
 	     return redirect()->intended(route('trangchu'));
+	}else{
+		return redirect()->route('dangnhap')->withInput()->withErrors(['error'=>'Username or password not correct']);
 	}
-	return redirect(route('dangnhap'))->with("error","Username or password not correct");
     }
 
     public function dangky(){
@@ -37,19 +39,21 @@ class AuthController extends Controller
     	    'username' => 'required',
 	    'fullname' => 'required',
 	    'email' => 'required|email|unique:users',
-	    'password' => 'required',
-	    're_password' => 'required',
+	    'password' => 'required|min:6',
+	    're_password' => 'required|same:password',
 	    'address' => 'required',
     	]);
 
 	$data['name']=$request->username;
 	$data['email']=$request->email;
 	$data['password']=Hash::make($request->password);
-	$user=User::create($data);
-	if(!$user){
-	   return redirect(route('dangky'))->with("error","Registration failed, try again");
+	$user= new User();
+	$registered = $user->register($data);
+	if(!$registered){
+	   return redirect()->route('dangky')->withInput()->withErrors(['error'=>'Registration failed, please try again']);
+	}else{
+	return redirect(route('dangnhap'));
 	}
-	return redirect(route('dangnhap'))->with("success","Registration success, please login");
     }
     public function dangxuat(){
 	Session::flush();
