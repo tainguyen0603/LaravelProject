@@ -58,7 +58,7 @@ class User extends Authenticatable
     {
         $user = new self();
         $user->name = $data['username'];
-        $user->password = Hash::make($data['password']);
+        $user->password = $data['password'];
         $user->email = $data['email'];
         $user->address = $data['address'];
 
