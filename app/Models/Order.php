@@ -1,30 +1,31 @@
+<?php
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $table ="donhang";
+    protected $table ="orders";
     protected $fillable = [
         'username',
         'fullname',
         'thoigiandathang',
-        'tongtien',
+        'total',
         'soluongdonhang',
-        'diachigiaohang',
-        'lienlac',
-        'trangthai',
-        'ghichu',
-        'nguoihoanthanh'
+        'address',
+        'contact',
+        'status',
+        'note',
+        'completed_by'
     ];
-
+    public $timestamps = false;
     public function saveOrder($data){
 	$order = new self();
-	$order->hovaten = $data['fullname'];
-	$order->diachigiaohang = $data['address'];
-	$order->lienlac = $data['phone'];
-	$order->note = $data['ghichu'];
-	$order->method = $data['method'];
+	$order->fullname = $data['fullname'];
+	$order->address = $data['address'];
+	$order->contact = $data['phone'];
+	$order->note = $data['note'];
+	$order->status = $data['method'];
 	
 	return $order->save();
     }

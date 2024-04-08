@@ -14,19 +14,20 @@ class PaymentController extends Controller
 	public function thanhtoanPost(Request $request)
     {
         $request->validate([
-    	    'name' => 'required',
+    	    'fullname' => 'required',
 	    'email' => 'required|email|unique:users',
 	    'phone' => 'required|numeric',
 	    'address' => 'required',
-	    'note' => 'nullable'
+	    'notes' => 'nullable',
+	    'method' => ''
     	]);
-	$data['name'] =$request->name;
-	$data['email'] =$request->email;
-	$data['phone'] =$request->phone;
-	$data['address'] =$request->address;
-	$data['note'] =$request->note;
-	$data['method']=$request->method;
-	$order= new Order();
+	$data['fullname'] = $request->fullname;
+	$data['email'] = $request->email;
+	$data['phone'] = $request->phone;
+	$data['address'] = $request->address;
+	$data['note'] = $request->notes;
+	$data['method']= $request->method;
+	$order = new Order();
 	$orderDetail = $order->saveOrder($data);
         if(!$orderDetail){
 	     return redirect()->route('thanhtoan')->withInput()->withErrors(['error'=>'Payment failed']);
