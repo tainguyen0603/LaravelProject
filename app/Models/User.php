@@ -12,7 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    protected $table ="users";
+    protected $table = "users";
     /**
      * The attributes that are mass assignable.
      *
@@ -57,11 +57,11 @@ class User extends Authenticatable
     public function register($data)
     {
         $user = new self();
-        $user->name = $data['username'];
-        $user->password = Hash::make($data['password']);
+        $user->name = $data['name'];
+        $user->password = $data['password'];
         $user->email = $data['email'];
         $user->address = $data['address'];
-
-        return $user->save(); 
+        $user->fullname = $data['fullname'];
+        return $user->save();
     }
 }
