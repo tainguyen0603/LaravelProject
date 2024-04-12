@@ -7,18 +7,18 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self';"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="fontawesome/fontawesome/css/all.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/wp-content.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/login-reg.css" />
-    <link rel="stylesheet" href="css/detailproduct.css">
-    <link rel="stylesheet" href="css/cart.css">
-    <link rel="stylesheet" href="css/checkout.css">
-    <link rel="stylesheet" href="css/history_cart.css">
-    <link rel="stylesheet" href="css/yourinfo.css">
-    <link rel="stylesheet" href="css/pagging.css">
-    <link rel="stylesheet" href="css/product_conditions.css">
-
+    <link rel="stylesheet" href="{{asset('css/header.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/wp-content.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/footer.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/login-reg.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/detailproduct.css')}}">
+    <link rel="stylesheet" href="{{asset('css/cart.css')}}">
+    <link rel="stylesheet" href="{{asset('css/checkout.css')}}">
+    <link rel="stylesheet" href="{{asset('css/history_cart.css')}}">
+    <link rel="stylesheet" href="{{asset('css/yourinfo.css')}}">
+    <link rel="stylesheet" href="{{asset('css/pagging.css')}}">
+    <link rel="stylesheet" href="{{asset('css/product_conditions.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 
 
@@ -124,7 +124,7 @@
                         <i class="fa-solid fa-bars"></i>
                     </div>
                     <div class="logo">
-                        <a href="trangchu">Vsmart</a>
+                        <a href="{{route('trangchu')}}">Vsmart</a>
                     </div>
                     <!-- <form action="" forget></form> -->
                     <div class="search">
@@ -160,28 +160,28 @@
 
 
 
-                            <p>Có <strong class="num-order">10</strong> sản phẩm trong giỏ hàng </p>
+                            <p>Có <strong class="num-order">{{Cart::count()}}</strong> sản phẩm trong giỏ hàng </p>
                             <ul>
-
+                                @foreach (Cart::content() as $row)
                                 <li>
                                     <div class="item">
                                         <div class="img-product">
-                                            <a href="" alt=""><img src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" alt=""></a>
+                                            <a href="{{route('chitietsanpham',['id'=>$row->id])}}" alt=""><img src="{{asset('admin/images/'.$row->options->hinhanh)}}" alt=""></a>
                                         </div>
                                         <div class="info">
-                                            <p class="name">Ip10</p>
-                                            <p class="price">10.000.000 VNĐ</p>
-                                            <p class="num-order">Số lượng:10</p>
+                                            <p class="name"></p>
+                                            <p class="price"><?php echo number_format($row->price) ?> VNĐ</p>
+                                            <p class="num-order">Số lượng:{{$row->qty}}</p>
                                         </div>
                                     </div>
                                 </li>
 
-
+                                @endforeach
 
                             </ul>
-                            <p class="total">Tổng tiền:<strong class="sub-total">120.000.000 VNĐ</strong></p>
+                            <p class="total">Tổng tiền:<strong class="sub-total">{{Cart::total()}} VNĐ</strong></p>
 
-                            <a href="giohang" class="cart">Giỏ hàng</a>
+                            <a href="{{route('giohang')}}" class="cart">Giỏ hàng</a>
                             <a href="thanhtoan" class="checkout">Thanh toán</a>
                         </div>
                     </div>
@@ -191,27 +191,7 @@
 
 
             </div>
-            <!-- <div class="head-footer">
-                <div class="main-menu">
-                    <ul class="menu">
-                        <a href="?mod=home&action=home">
-                            <li>Trang chủ</li>
-                        </a>
-                        <a href="?mod=store&controler=index&action=introduce">
-                            <li>Giới Thiệu</li>
-                        </a>
-                        <a href="">
-                            <li>Sản phẩm</li>
-                        </a>
-                        <a href="">
-                            <li>Blogs</li>
-                        </a>
-                        <a href="">
-                            <li>Liên hệ</li>
-                        </a>
-                    </ul>
-                </div>
-            </div> -->
+
             <div id="menu_replace">
 
                 <div class="menu">
