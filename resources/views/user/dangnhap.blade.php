@@ -18,17 +18,17 @@
             <label for="">Tên tài khoản</label>
             <input type="text" name="username" id="usernamelogin" value="" placeholder="Tên đăng nhập" />
             @error('username')
-            <div class="err_usernamelogin">{{$message}}</div>
+            <div class="alert alert-danger">{{$message}}</div>
             @enderror
             <label for="">Mật khẩu</label>
             <input type="password" id="passwordlogin" placeholder="Mật khẩu" value="" name="password" />
             @error('password')
-            <div class="err_passwordlogin">{{$message}}</div>
+            <div class="alert alert-danger">{{$message}}</div>
             @enderror
             <input type="submit" name="btn-login" id="" value="Đăng nhập" />
         </form>
         @if($errors->has('error'))
-        <div class="err_passwordlogin">{{$errors->first('error')}}</div>
+        <div class="alert alert-danger">{{$errors->first('error')}}</div>
         @endif
     </div>
 </div>

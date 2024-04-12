@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DanhMucController;
 use App\Http\Controllers\TrangChuController;
@@ -37,9 +38,8 @@ Route::get('/capnhatgiohang', [CartController::class, 'capnhatgiohang'])->name('
 
 
 
-Route::get('/thanhtoan', function () {
-    return view('user.thanhtoan');
-});
+Route::get('/thanhtoan', [PaymentController::class, 'thanhtoan'])->name('thanhtoan');
+Route::post('/thanhtoan', [PaymentController::class, 'thanhtoanPost'])->name('thanhtoan.post');
 
 Route::get('/admin/trangchu', function () {
 
