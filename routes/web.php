@@ -23,6 +23,8 @@ Route::get('/chitietsanpham/{id}', [TrangChuController::class, 'chitietsanpham']
 Route::get('/AddToCart/{id}', [CartController::class, 'AddToCart'])->name('AddToCart');
 Route::get('/dangnhap', [AuthController::class, 'dangnhap'])->name('dangnhap');
 
+Route::get('/sanphamtheodanhmuc/{id}', [SanPhamController::class, 'LoadSanPhamTheoDanhMuc'])->name('sanphamtheodanhmuc');
+
 Route::post('/dangnhap', [AuthController::class, 'dangnhapPost'])->name('dangnhap.post');
 
 Route::get('/dangky', [AuthController::class, 'dangky'])->name('dangky');
